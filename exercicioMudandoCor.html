@@ -1,0 +1,42 @@
+<canvas width="600" height="400">
+</canvas>
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    //exercicio 
+    var cores = ['blue', 'red', 'green'];
+    var i = 0;
+
+    
+    function desenhaBola (evento){
+        var x = evento.pageX;
+        var y = evento.pageY;
+        var cor = cores[i];
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+
+    }
+
+    function mudaCor(){
+        if ( i < 2){
+            return i = i + 1;
+        } else {
+            return i = 0;
+        }
+    }
+
+    tela.onclick = desenhaBola;
+    tela.oncontextmenu = mudaCor;
+  
+
+
+
+</script>
